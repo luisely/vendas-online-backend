@@ -1,15 +1,17 @@
+import { CacheModule as CacheModuleNest } from '@nestjs/cache-manager';
 import { Module } from '@nestjs/common';
-import { CityController } from './city.controller';
-import { CityService } from './city.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CacheModule } from 'src/cache/cache.module';
+import { CityController } from './city.controller';
 import { CityEntity } from './city.entity';
-import { CacheModule } from '@nestjs/cache-manager';
+import { CityService } from './city.service';
 
 @Module({
   imports: [
-    CacheModule.register({
-      ttl: 9000000000,
+    CacheModuleNest.register({
+      ttl: 90000000,
     }),
+    CacheModule,
     TypeOrmModule.forFeature([CityEntity]),
   ],
   controllers: [CityController],
