@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import { IsInt, IsOptional, IsString } from 'class-validator';
 import { AddressEntity } from '../entities/address.entity';
 import { ReturnCityDto } from 'src/city/dtos/returnCity.dto';
 
