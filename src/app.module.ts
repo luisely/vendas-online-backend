@@ -26,7 +26,7 @@ import { JwtModule } from '@nestjs/jwt';
       port: Number(process.env.DB_PORT),
       entities: [`${__dirname}/**/*.entity{.js,.ts}`],
       migrations: [`${__dirname}/migration/{*.js,.ts}`],
-      migrationsRun: false,
+      migrationsRun: true,
     }),
     StateModule,
     CityModule,
