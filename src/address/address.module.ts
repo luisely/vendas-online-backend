@@ -4,7 +4,6 @@ import { AddressController } from './address.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AddressEntity } from './entities/address.entity';
 import { UserModule } from 'src/user/user.module';
-import { CityService } from 'src/city/city.service';
 import { CityModule } from 'src/city/city.module';
 
 @Module({

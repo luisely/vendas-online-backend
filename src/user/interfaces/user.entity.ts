@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 
+import { AddressEntity } from 'src/address/entities/address.entity';
 import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity({ name: 'user' })
@@ -35,4 +37,7 @@ export class UserEntity {
 
   @CreateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
+
+  @OneToMany(() => AddressEntity, (address) => address.user)
+  addresses?: AddressEntity[];
 }

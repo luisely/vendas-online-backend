@@ -1,10 +1,13 @@
 /* eslint-disable prettier/prettier */
 
+import { CityEntity } from 'src/city/city.entity';
 import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity({ name: 'state' })
@@ -18,6 +21,9 @@ export class StateEntity {
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
+
+  @OneToMany(() => CityEntity, (city) => city.state)
+  cities?: CityEntity[];
 }

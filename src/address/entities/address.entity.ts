@@ -1,10 +1,15 @@
 /* eslint-disable prettier/prettier */
 
+import { CityEntity } from 'src/city/city.entity';
+import { UserEntity } from 'src/user/interfaces/user.entity';
 import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
+  UpdateDateColumn,
+  JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 
 @Entity({ name: 'address' })
@@ -30,6 +35,14 @@ export class AddressEntity {
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
+
+  @ManyToOne(() => UserEntity, (user) => user.addresses)
+  @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
+  user?: UserEntity;
+
+  @ManyToOne(() => CityEntity, (city) => city.addresses)
+  @JoinColumn({ name: 'city_id', referencedColumnName: 'id' })
+  city?: CityEntity;
 }
