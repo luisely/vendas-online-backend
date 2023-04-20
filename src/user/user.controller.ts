@@ -10,7 +10,6 @@ export class UserController {
 
   @Post()
   async createUser(@Body() createUser: CreateUserDto): Promise<UserEntity> {
-    console.log(createUser);
     return this.userService.createUser(createUser);
   }
 
