@@ -11,7 +11,7 @@ import { UserEntity } from './interfaces/user.entity';
 
 import { UserType } from './enum/user-type.enum';
 import { UpdatePasswordDto } from './dtos/updatePassword.dto';
-import { createPasswordHashed, validatePassword } from 'src/utils/password';
+import { createPasswordHashed, validatePassword } from '../utils/password';
 
 @Injectable()
 export class UserService {

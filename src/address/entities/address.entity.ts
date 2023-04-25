@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
-import { CityEntity } from 'src/city/city.entity';
-import { UserEntity } from 'src/user/interfaces/user.entity';
+import { CityEntity } from '../../city/city.entity';
+import { UserEntity } from '../../user/interfaces/user.entity';
 import {
   Column,
   Entity,

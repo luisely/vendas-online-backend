@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
-import { AddressEntity } from 'src/address/entities/address.entity';
-import { StateEntity } from 'src/state/state.entity';
+import { AddressEntity } from '../address/entities/address.entity';
+import { StateEntity } from '../state/state.entity';
 import {
   Column,
   Entity,
