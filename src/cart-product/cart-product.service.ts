@@ -5,6 +5,7 @@ import { DeleteResult, Repository } from 'typeorm';
 import { InsertCart } from 'src/cart/dtos/insert-cart-dto';
 import { CartEntity } from 'src/cart/entities/cart.entity';
 import { ProductService } from 'src/product/product.service';
+import { UpdateCartDto } from 'src/cart/dtos/update-cart.dto';
 
 @Injectable()
 export class CartProductService {
@@ -26,7 +27,7 @@ export class CartProductService {
     });
 
     if (!isProductAlreadyOnCart) {
-      throw new NotFoundException('Product not found!');
+      throw new NotFoundException('Product not found in cart!');
     }
 
     return isProductAlreadyOnCart;
@@ -61,6 +62,23 @@ export class CartProductService {
     return this.cartProductRepository.save({
       ...produtIsAlreadyInCart,
       amount: produtIsAlreadyInCart.amount + insertCart.amount,
+    });
+  }
+
+  async updateProductInCart(
+    updateCart: UpdateCartDto,
+    cart: CartEntity,
+  ): Promise<CartProductEntity> {
+    await this.productService.findProductByid(updateCart.productId);
+
+    const produtToUpdate = await this.verifyProductInCart(
+      updateCart.productId,
+      cart.id,
+    );
+
+    return this.cartProductRepository.save({
+      ...produtToUpdate,
+      amount: updateCart.amount,
     });
   }
 
