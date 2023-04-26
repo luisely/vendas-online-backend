@@ -14,7 +14,6 @@ import { CartService } from './cart.service';
 import { UserId } from 'src/decorators/user-id.decorator';
 import { ReturnCartDto } from './dtos/return-cart.dto';
 import { DeleteResult } from 'typeorm';
-import { CartEntity } from './entities/cart.entity';
 import { UpdateCartDto } from './dtos/update-cart.dto';
 
 @Roles(UserType.User, UserType.Admin)
