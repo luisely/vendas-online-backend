@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 
+import { OrderEntity } from 'src/order/entities/order.entity';
 import { CityEntity } from '../../city/city.entity';
 import { UserEntity } from '../../user/interfaces/user.entity';
 import {
@@ -45,4 +46,6 @@ export class AddressEntity {
   @ManyToOne(() => CityEntity, (city) => city.addresses)
   @JoinColumn({ name: 'city_id', referencedColumnName: 'id' })
   city?: CityEntity;
+
+  orders: OrderEntity[];
 }
