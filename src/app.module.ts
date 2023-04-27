@@ -16,6 +16,8 @@ import { CartModule } from './cart/cart.module';
 import { CartProductModule } from './cart-product/cart-product.module';
 import { PaymentStatusModule } from './payment-status/payment-status.module';
 import { PaymentModule } from './payment/payment.module';
+import { OrderModule } from './order/order.module';
+import { OrderProductModule } from './order-product/order-product.module';
 
 @Module({
   imports: [
@@ -32,7 +34,7 @@ import { PaymentModule } from './payment/payment.module';
       port: Number(process.env.DB_PORT),
       entities: [`${__dirname}/**/*.entity{.js,.ts}`],
       migrations: [`${__dirname}/migration/{*.js,.ts}`],
-      migrationsRun: false,
+      migrationsRun: true,
     }),
     StateModule,
     CityModule,
@@ -46,6 +48,8 @@ import { PaymentModule } from './payment/payment.module';
     CartProductModule,
     PaymentStatusModule,
     PaymentModule,
+    OrderModule,
+    OrderProductModule,
   ],
   controllers: [],
   providers: [
